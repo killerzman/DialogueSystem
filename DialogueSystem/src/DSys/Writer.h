@@ -7,7 +7,13 @@
 class Writer
 {
 public:
-	Writer();
+	Writer(std::string, WriterDelay);
+	Writer(std::string);
 	~Writer();
+	void Write();
+
+	std::string m_Text;
+	WriterDelay m_Delay;
+	const float m_DelayFactor = 0.01f;
 };
 

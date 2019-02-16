@@ -1,1 +1,1 @@
-texterino_file
+$(S0)Mom is here...\nWhat do you do?
