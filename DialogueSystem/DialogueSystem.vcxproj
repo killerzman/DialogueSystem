@@ -81,17 +81,12 @@
   <ItemGroup>
     <ClInclude Include="src\DSys.h" />
     <ClInclude Include="src\DSys\Core.h" />
-    <ClInclude Include="src\DSys\Parser.h" />
     <ClInclude Include="src\DSys\Reader.h" />
     <ClInclude Include="src\DSys\Writer.h" />
     <ClInclude Include="src\dsyspch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\_test\Main.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="src\DSys\Parser.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>

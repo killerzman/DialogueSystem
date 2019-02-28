@@ -18,9 +18,6 @@
     <ClInclude Include="src\DSys.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\DSys\Parser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\DSys\Reader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -35,9 +32,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\DSys\Parser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\DSys\Reader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
