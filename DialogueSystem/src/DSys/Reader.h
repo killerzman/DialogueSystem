@@ -4,6 +4,11 @@
 
 #include "Core.h"
 
+enum ReaderType
+{
+	_FILE = 0, _TEXT
+};
+
 class Reader
 {
 public:

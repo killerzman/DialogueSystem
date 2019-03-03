@@ -24,7 +24,7 @@ Reader::Reader(ReaderType rType, const std::string& buf)
 	{
 		if (buf.size())
 		{
-			m_Path = "**NO_PATH**";
+			m_Path = "**NOT_A_FILE**";
 			m_Text = buf;
 			m_RType = rType;
 		}
