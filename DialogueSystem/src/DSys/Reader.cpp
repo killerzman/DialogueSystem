@@ -1,55 +1,58 @@
 #include "Reader.h"
 
-Reader::Reader(ReaderType rType, const std::string& buf)
-{
-	if (rType == ReaderType::_FILE)
+namespace DS {
+
+	Reader::Reader(ReaderType rType, const std::string& buf)
 	{
-		std::ifstream file(buf);
-		if (file.is_open())
+		if (rType == DS::ReaderType::_FILE)
 		{
-			m_Path = buf;
-			std::stringstream stream;
-			stream << file.rdbuf();
-			m_Text = stream.str();
-			m_RType = rType;
-			file.close();
+			std::ifstream file(buf);
+			if (file.is_open())
+			{
+				m_Path = buf;
+				std::stringstream stream;
+				stream << file.rdbuf();
+				m_Text = stream.str();
+				m_RType = rType;
+				file.close();
+			}
+			else
+			{
+				_OUTPUT_ERROR_PATH(buf);
+			}
 		}
-		else
+
+		else if (rType == DS::ReaderType::_TEXT)
 		{
-			_OUTPUT_ERROR_PATH(buf);
+			if (buf.size())
+			{
+				m_Path = "**NOT_A_FILE**";
+				m_Text = buf;
+				m_RType = rType;
+			}
+			else
+			{
+				_OUTPUT_ERROR_EMPTY_TEXT(buf);
+			}
 		}
 	}
 
-	else if (rType == ReaderType::_TEXT)
+	std::string Reader::getPath()
 	{
-		if (buf.size())
-		{
-			m_Path = "**NOT_A_FILE**";
-			m_Text = buf;
-			m_RType = rType;
-		}
-		else
-		{
-			_OUTPUT_ERROR_EMPTY_TEXT(buf);
-		}
+		return m_Path;
 	}
-}
 
-std::string Reader::getPath()
-{
-	return m_Path;
-}
+	std::string Reader::getText()
+	{
+		return m_Text;
+	}
 
-std::string Reader::getText()
-{
-	return m_Text;
-}
+	ReaderType Reader::getRType()
+	{
+		return m_RType;
+	}
 
-ReaderType Reader::getRType()
-{
-	return m_RType;
-}
-
-Reader::~Reader()
-{
+	Reader::~Reader()
+	{
+	}
 }
