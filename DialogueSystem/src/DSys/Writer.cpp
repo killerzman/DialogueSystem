@@ -64,26 +64,6 @@ namespace DS {
 
 	void Writer::Write()
 	{
-		/*for (auto chr : m_Text)
-		{
-			_OUTPUT_WRITE(chr);
-			std::this_thread::sleep_for(std::chrono::milliseconds(int((m_DelayFactor * BIT(m_Delay)) * 1000)));
-		}*/
-
-		/*std::smatch m;
-		if (std::regex_search(text, m, RegexMatches::_DELAY))
-		{
-			for (int i = m.position(0) + m.length(0); i < text.length(); i++)
-			{
-				std::cout << text[i];
-			}
-		}*/
-
-		/*for (auto rf : m_RegexFilters)
-		{
-			_OUTPUT_WRITE(rf.first);
-		}*/
-
 		bool reachedEndOfText = false;
 
 		for (int i = 0; i < m_Text.length(); i++)
@@ -137,6 +117,25 @@ namespace DS {
 					else if (firstFilterString == "NEWLINE")
 					{
 						_OUTPUT_WRITE("\n");
+					}
+					else if (firstFilterString == "PAUSE")
+					{
+						int pauseNumber = subText[firstFilterPosition + firstFilterMatch.length(0) - 2] - '0';
+						int _idx = 0;
+						float pauseInSeconds = 1;
+						for (const auto& pauseItem : PauseDelay)
+						{
+							if (_idx == pauseNumber)
+							{
+								pauseInSeconds = pauseItem.second;
+								break;
+							}
+							else
+							{
+								_idx++;
+							}
+						}
+						std::this_thread::sleep_for(std::chrono::milliseconds(int(pauseInSeconds * 1000)));
 					}
 
 					i += (firstFilterMatch.length(0) - 1);
